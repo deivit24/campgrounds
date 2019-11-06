@@ -1,0 +1,21 @@
+.show-container {
+  margin-top: 25px; }
+
+.card .card-body {
+  text-align: left; }
+
+#delForm {
+  margin-left: 10px; }
+
+#commentButtons {
+  display: inline-flex; }
+  #commentButtons a {
+    margin-right: 5px; }
+
+.checked {
+  color: orange; }
+
+/* Google Maps */
+#map {
+  height: 400px;
+  width: 100%; }

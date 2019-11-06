@@ -1,0 +1,42 @@
+<% include ../partials/header %>
+<div class="container">
+	<div class="row">
+		<div class="col-md-4">
+			<div class="card" style="width: 100%;">
+  				<img src="<%= user.avatar %>" class="card-img-top" alt="...">
+  				<div class="card-body">
+    				<h5 class="card-title"><%= user.firstName + " " + user.lastName %></h5>
+    					<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+    					<a href="mailto:<%= user.email %>" ><p class="text-muted"><%= user.email %></p></a>
+  				</div>
+			</div>
+			
+			
+		</div>
+		<div class="col-md-8">
+			<h3><%=user.username %>'s campgrounds</h3>
+			<ul>
+			<% campgrounds.forEach((campground) => { %>
+				<a href="/campgrounds/<%= campground.id %>">
+				<div class="card mb-3" style="max-width: 100%;">
+  <div class="row no-gutters">
+    <div class="col-md-4">
+      <img src="<%=campground.image %>" class="card-img" alt="...">
+    </div>
+    <div class="col-md-8">
+      <div class="card-body" style="text-align: center;">
+        <h5 class="card-title"><%=campground.name %></h5>
+       
+        
+      </div>
+    </div>
+  </div>
+					
+</div>
+				</a>
+			<% }); %>
+			</ul>
+		</div>
+	</div>
+</div>
+<% include ../partials/footer %> 
