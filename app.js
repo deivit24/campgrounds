@@ -25,19 +25,19 @@ const campgroundRoutes = require("./routes/campgrounds"),
 	  port = process.env.PORT || 3000,
 // ENV PASSWORDS AND STABLE + DEVELOPMENT VARAIBLES
 	  dbPassword = process.env.DBATLAS_PASSWORD,
-	  development = 'mongodb://localhost:27017/camp_grounds',
+	  development = process.env.DEVELOPMENT,
 	  stable = 'mongodb+srv://deivit24:'+ dbPassword +'@campgrounds-1xlja.mongodb.net/test?retryWrites=true&w=majority';
 
 
 // Create MongoDB + Mongoose Database 
 mongoose.set('useFindAndModify', false);
-mongoose.connect(stable, {
+mongoose.connect(development, {
 	useNewUrlParser: true,
 	useCreateIndex: true,
 	useUnifiedTopology: true
 
 }).then(() => {
-	console.log("Connected to DB ATLAS")
+	console.log("Connected")
 }).catch(err => {
 	console.log('ERROR:', err.message );
 })
