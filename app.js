@@ -22,11 +22,27 @@ const campgroundRoutes = require("./routes/campgrounds"),
 	  indexRoutes	   = require("./routes/index"),
 // 	  HOST AND POST
 	  host = '0.0.0.0',
-	  port = process.env.PORT || 3000;
+	  port = process.env.PORT || 3000,
+// ENV PASSWORDS AND STABLE + DEVELOPMENT VARAIBLES
+	  dbPassword = process.env.DBATLAS_PASSWORD,
+	  development = 'mongodb://localhost:27017/camp_grounds',
+	  stable = 'mongodb+srv://deivit24:'+ dbPassword +'@campgrounds-1xlja.mongodb.net/test?retryWrites=true&w=majority';
+
 
 // Create MongoDB + Mongoose Database 
 mongoose.set('useFindAndModify', false);
-mongoose.connect('mongodb://localhost:27017/camp_grounds', {useNewUrlParser: true});
+mongoose.connect(stable, {
+	useNewUrlParser: true,
+	useCreateIndex: true,
+	useUnifiedTopology: true
+
+}).then(() => {
+	console.log("Connected to DB ATLAS")
+}).catch(err => {
+	console.log('ERROR:', err.message );
+})
+
+// mongodb+srv://deivit24:<password>@campgrounds-1xlja.mongodb.net/test?retryWrites=true&w=majority
 
 // Use Body Parser
 app.use(bodyParser.urlencoded({ extended: true }));
