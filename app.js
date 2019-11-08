@@ -26,12 +26,12 @@ const campgroundRoutes = require("./routes/campgrounds"),
 // ENV PASSWORDS AND STABLE + DEVELOPMENT VARAIBLES
 	  dbPassword = process.env.DBATLAS_PASSWORD,
 	  development = process.env.DEVELOPMENT,
-	  stable = 'mongodb+srv://deivit24:'+ dbPassword +'@campgrounds-1xlja.mongodb.net/test?retryWrites=true&w=majority';
+	  stable = process.env.PRODUCTION;
 
 
 // Create MongoDB + Mongoose Database 
 mongoose.set('useFindAndModify', false);
-mongoose.connect(development, {
+mongoose.connect(stable, {
 	useNewUrlParser: true,
 	useCreateIndex: true,
 	useUnifiedTopology: true
