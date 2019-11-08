@@ -31,7 +31,7 @@ const campgroundRoutes = require("./routes/campgrounds"),
 
 // Create MongoDB + Mongoose Database 
 mongoose.set('useFindAndModify', false);
-mongoose.connect(development, {
+mongoose.connect(stable, {
 	useNewUrlParser: true,
 	useCreateIndex: true,
 	useUnifiedTopology: true
