@@ -1,17 +1,20 @@
 
 <% include ../partials/header %>
-<div class="container show-container">
-	<div class="row">
-		<div class="col-md-3">
+<div class="container" id="showEJS">
+		<div class="row">
+		<div class="col-md-4 order-last order-md-first">
 			<!--Review section-->
-            <div class="thumbnail">
-                <div class="caption-full">
-                    <% if (campgrounds.rating === 0) { %>
-                    <h5>
+        <div class="card">
+				<% if (campgrounds.rating === 0) { %>
+                <div class="card-body">
+                    
+                    <h4 style="text-align: center">
                         <em>No reviews yet.</em>
-                    </h5>
+                    </h4>
+				
                     <% } else { %>
-                    <p>
+					<div class="card-body with-reviews">
+                    <p style="text-align:left;">
                         <span class="fa fa-star checked"></span>
                         <span class="fa fa-star <% if (campgrounds.rating > 1.5) { %> checked <% } %>"></span>
                         <span class="fa fa-star <% if (campgrounds.rating > 2.5) { %> checked <% } %>"></span>
@@ -20,46 +23,66 @@
                         <em>(total reviews: <%= campgrounds.reviews.length %>)</em>
                     </p>
                     <p>
-                        Current campground rating: <strong><%= campgrounds.rating.toFixed(2) %></strong>
+                        <%= campgrounds.name %>  rating: <strong><%= campgrounds.rating.toFixed(2) %></strong>
                     </p>
-                    <p><h4>Latest reviews for this campground:</h4></p>
+							   <p style="margin-bottom: 0px;"><a href="/campgrounds/<%= campgrounds._id %>/reviews"><i class="fa fa-search" aria-hidden="true"></i> See all reviews</a></p>
+
+                    <h5>Latest reviews for <%= campgrounds.name %>:</h5>
                     <hr style="margin-top: 0;">
                     <% campgrounds.reviews.slice(0, 5).forEach(function(review){ %>
                     <div class="row">
-                        <div class="col-md-3">
+                        <div class="col-12">
                             <%- '<span class="fa fa-star checked"></span>'.repeat(review.rating) %><%- '<span class="fa fa-star"></span>'.repeat(5 - review.rating) %>
-                            <div>Review by: <strong><%= review.author.username %></strong></div>
+							<% if(currentUser && review.author.id.equals(currentUser._id)){ %>
+							<div class="review-buttons">
+                            <a class="btn btn-sm btn-outline-warning" 
+							   data-toggle="tooltip" 
+							   data-placement="top" 
+							   title="edit review"
+                               href="/campgrounds/<%=campgrounds._id %>/reviews/<%=review._id %>/edit">
+								<i class="fas fa-edit"></i>
+							</a>
+                            <form id="delete-form" action="/campgrounds/<%=campgrounds._id %>/reviews/<%=review._id %>?_method=DELETE" method="POST"  data-toggle="tooltip" 
+							   data-placement="top" 
+							   title="delete review">
+                               
+								<button class="btn btn-sm btn-outline-danger">
+									<i class="fas fa-trash-alt"></i>
+								</button>
+                            </form>
+								</div>
+                            <% } %>
+                            <div>Review by: <a href="/profile/<%= review.author.id %>"><strong><%= review.author.username %></strong></a> </div>
                             <span><em><%= review.updatedAt.toDateString() %></em></span>
                         </div>
-                        <div class="col-md-9">
+                        <div class="col-12">
                             <p style="text-align: justify; word-wrap: break-word;">
                                 <%= review.text %>
                             </p>
-                            <% if(currentUser && review.author.id.equals(currentUser._id)){ %>
-                            <a class="btn btn-xs btn-warning"
-                               href="/campgrounds/<%=campgrounds._id %>/reviews/<%=review._id %>/edit">Edit</a>
-                            <form id="delete-form" action="/campgrounds/<%=campgrounds._id %>/reviews/<%=review._id %>?_method=DELETE" method="POST">
-                                <input type="submit" class="btn btn-xs btn-danger" value="Delete">
-                            </form>
-                            <% } %>
+                            
                         </div>
                     </div>
                     <hr>
                     <% }); %>
-                    <div style="margin-bottom: 10px;">
-                        <h4><a href="/campgrounds/<%= campgrounds._id %>/reviews"><i class="fa fa-search" aria-hidden="true"></i> See all reviews</a></h4>
-                    </div>
-                    <% } %>
+                    
+
+	                     
+	                   
+                    
+                    
                     <div>
-                        <a class="btn btn-primary btn-lg <% if (currentUser && campgrounds.reviews.some(function (review) {return review.author.id.equals(currentUser._id)})) { %> disabled <% } %>" href="/campgrounds/<%= campgrounds._id %>/reviews/new">
-                            Write a New Review</a>
+						
                     </div>
+						<% } %>
                 </div>
             </div>
-			<p class="lead">CampGrounds</p>
+			
+			      <a class="btn btn-outline-primary btn-lg <% if (currentUser && campgrounds.reviews.some(function (review) {return review.author.id.equals(currentUser._id)})) { %> disabled <% } %>" style="width: 100%;" href="/campgrounds/<%= campgrounds._id %>/reviews/new">
+                            <i class="fas fa-pen"></i> New Review</a>
+			
 			<div id="map"></div>
 		</div>
-		<div class="col-md-9">
+		<div class="col-md-8">
 		  <div class="card">
         	<img src="<%= campgrounds.image %>" class="card-img-top" alt="..." />
         	<div class="card-body" >

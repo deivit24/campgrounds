@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
 	<meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -8,6 +8,7 @@
          <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
         <link rel="stylesheet" href="/css/landing.css">
         <script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js" type="text/javascript" async></script>
+		 <script src="https://kit.fontawesome.com/21dd8fd46c.js" crossorigin="anonymous"></script>
     </head>
     <body>
 
@@ -29,16 +30,23 @@
 		</div>
 		  <% } %>
 	  </div>
-		 <div id="landing-header" class="container">
- 		<h1>Welcome to CampGrounds!</h1>
-		<a href="/campgrounds" class="btn btn-lg btn-success">View All Campgrounds</a>
+	<div id="landing-header" class="container">
+ 		<div class="row">
+ 			<div class="col-md-6"><h1>Welcome to CampGrounds!</h1>
+		</div>
+ 			<div class="col-md-6">
+ 				<div class="buttons">
+ 					<a href="/campgrounds" class="btn btn-lg btn-success">View All Campgrounds</a>
 		
-           <form action="/campgrounds" method="GET" class="form-inline">
-               <div class="form-group">
-                   <input type="text" name="search" placeholder="Campground search..." class="form-control">
-                   <input type="submit" value="Search" class="btn btn-light">
+           <form action="/campgrounds" method="GET" >
+               <div class="form-row">
+                   <input type="text" name="search" placeholder="Campground search..." class="form-control search">
+                   <button type="submit"> <i class="fas fa-search" style="color:white;"></i></button>
                </div>
            </form>
+ 				</div>
+ 			</div>
+ 		</div>
        
 		
     </div>

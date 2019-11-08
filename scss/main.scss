@@ -1,11 +1,76 @@
-.show-container{
-	margin-top: 25px;
+@import url('https://fonts.googleapis.com/css?family=Lato|Open+Sans|Source+Sans+Pro&display=swap');
+
+$main: 'Source Sans Pro', sans-serif;
+$open:  'Open Sans', sans-serif;
+$lato: 'Lato', sans-serif;
+
+
+// NAVBAR
+.navbar-expand-md {
+	
 }
-.card {
-	.card-body{
-	text-align: left;
+// INDEX EJS START
+
+#indexEJS{
+	.col-sm-6{
+		margin-bottom: 25px;
+	}
+	.jumbotron {
+		
+		background-image: url("../img/dog.jpg");
+		background-position: center right;
+		background-size: cover;
+		background-repeat: no-repeat;
+		.container{
+			padding:25px 50px;
+		}
+		
+		@media screen and (max-width: 500px) {
+		background-image: url("../img/dog.jpg");
+		background-position: center right;
+		background-size: cover;
+		background-repeat: no-repeat;
+	}
+	}
+	
+}
+
+// INDEX EJS END
+
+// CAMPGROUNDS SHOW EJS START
+#showEJS{
+	.review-buttons{
+		display:inline-flex;
+		float:right;
+			a {
+	margin-right:5px;
+	
+}
+		
+	}
+	
+	.col-md-4{
+		.card{
+			
+			.with-reviews{
+		height: auto;
+		max-height: 600px;
+		overflow:-moz-scrollbars-none
+				scroll; 
+		overflow-y:
+			scroll;
+				&::-webkit-scrollbar {
+					display: none;
+							}
+	}
+	
+		}
+		.btn-outline-primary{
+		margin: 20px 0px;
+	}
 	}
 }
+
 #delForm {
 	margin-left:10px;
 }
