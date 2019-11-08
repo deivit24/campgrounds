@@ -37,7 +37,7 @@ mongoose.connect(development, {
 	useUnifiedTopology: true
 
 }).then(() => {
-	console.log("Connected")
+	console.log("Connected ")
 }).catch(err => {
 	console.log('ERROR:', err.message );
 })
