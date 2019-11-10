@@ -1,6 +1,6 @@
 <% include partials/header %>
 
-<div class="container">
+<div id="loginEJS" class="container">
 	<h1 style="text-align: center">Login</h1>
 	<div class="row">
     
@@ -14,9 +14,14 @@
             </div>
             <div class="form-group">
                 <button class="btn btn-lg btn-primary btn-block">Login</button>
+				<small> No account?  <a href="/register" class="link">  Create one</a></small>
             </div>
+			
         </form>
-        <a href="/campgrounds">Go Back</a>
+		
+        <p>
+			<a href="/campgrounds"><i class="fas fa-undo-alt"></i> Go Back</a>
+		</p>
     </div>
 </div>
 </div>

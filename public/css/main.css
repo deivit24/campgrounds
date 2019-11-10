@@ -22,6 +22,13 @@
   #showEJS .review-buttons a {
     margin-right: 5px; }
 
+#showEJS .col-md-4 .card a {
+  text-decoration: none;
+  color: black; }
+  #showEJS .col-md-4 .card a:hover {
+    cursor: pointer;
+    color: #333; }
+
 #showEJS .col-md-4 .card .with-reviews {
   height: auto;
   max-height: 600px;
@@ -32,6 +39,45 @@
 
 #showEJS .col-md-4 .btn-outline-primary {
   margin: 20px 0px; }
+
+#showEJS #commentBox #commentTitle {
+  font-family: "Open Sans", sans-serif;
+  font-size: 1.5em; }
+
+#showEJS #collapseComment {
+  margin-top: 25px; }
+  #showEJS #collapseComment .card {
+    border-left: 5px solid #00C851;
+    padding: 15px; }
+
+#loginEJS {
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; }
+  #loginEJS small {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin: 5px auto;
+    font-weight: 700; }
+  #loginEJS a {
+    margin-left: 10px;
+    text-decoration: none;
+    color: black; }
+    #loginEJS a:hover {
+      color: #333; }
+  #loginEJS .link {
+    text-decoration: none !important;
+    color: #000;
+    font-weight: 700;
+    padding-top: 0px;
+    text-transform: capitalize;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 65%, #5bc0de 65%);
+    transition: all 0.5s ease-in-out; }
+    #loginEJS .link:hover {
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0) 65%, #0275d8 65%);
+      color: black; }
 
 #delForm {
   margin-left: 10px; }
@@ -48,3 +94,11 @@
 #map {
   height: 400px;
   width: 100%; }
+
+#footer {
+  margin-top: 25px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }

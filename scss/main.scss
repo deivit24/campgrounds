@@ -38,7 +38,8 @@ $lato: 'Lato', sans-serif;
 // INDEX EJS END
 
 // CAMPGROUNDS SHOW EJS START
-#showEJS{
+#showEJS{ 
+
 	.review-buttons{
 		display:inline-flex;
 		float:right;
@@ -50,8 +51,18 @@ $lato: 'Lato', sans-serif;
 	}
 	
 	.col-md-4{
+		
+	
 		.card{
 			
+				a {
+		text-decoration: none;
+		color:black;
+		&:hover{
+			cursor: pointer;
+			color: #333;
+		}
+	}
 			.with-reviews{
 		height: auto;
 		max-height: 600px;
@@ -69,6 +80,62 @@ $lato: 'Lato', sans-serif;
 		margin: 20px 0px;
 	}
 	}
+	
+	// 	COMMENT SECTION SCSS
+	#commentBox {
+		#commentTitle{
+			font-family: $open;
+			font-size: 1.5em;
+		}
+	}
+	#collapseComment{
+		
+		margin-top: 25px;
+		.card {
+			border-left: 5px solid #00C851;
+			padding: 15px;
+		}
+	}
+	
+
+}
+// LOGIN EJS
+
+#loginEJS{
+	
+	small{
+		display:flex;
+		justify-content: center;
+		text-align: center;
+		margin: 5px auto;
+		 font-weight: 700;
+	}
+	a{
+		margin-left: 10px;
+		text-decoration: none;
+		color:black;
+		&:hover{
+			color:#333;
+		}
+	}
+	.link{
+	  text-decoration: none !important;
+	  color: #000;
+	  font-weight: 700;
+	  padding-top: 0px;
+	  text-transform: capitalize;
+	  background: linear-gradient(180deg, rgba(255, 255, 255, 0) 65%, #5bc0de 65%);
+	  transition: all 0.5s ease-in-out;
+		&:hover {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0) 65%, #0275d8 65%);
+    color: black; }
+	}
+	
+
+	height: 85vh;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 #delForm {
@@ -90,4 +157,13 @@ $lato: 'Lato', sans-serif;
 #map {
     height: 400px;
     width: 100%;
+}
+
+#footer{
+	margin-top: 25px;
+	height: 200px;
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 }
